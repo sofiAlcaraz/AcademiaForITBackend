@@ -2,13 +2,11 @@ import "dotenv/config"; //para el env
 import express from "express";
 import tasksRouter from "./src/routes/tasks.routes.js";
 
-//creo nueva iunstancia de express
+//creo nueva instancia de express
 const app = express();
-//para que lea json en el body
+//middleware para que express pueda entender JSON
 app.use(express.json());
-
-//defino una ruta para el endpoint raiz
-//callback captura la request (petición) y entrega una response (respuesta).
+//rutas
 app.use("/api/tasks", tasksRouter);
 
 //Manejo de Errores
@@ -22,7 +20,6 @@ app.use((err, res) => {
       res.status(500).send("Error Interno del Servidor");
   }
 });
-console.log(process.env.PORT);
 //defino el puerto
 const PORT = process.env.PORT || 3001;
 //Pongo a escuchar el servidor en el puerto definido
