@@ -1,23 +1,12 @@
-/*
-Esquema sugerida para el modelo de una Task
- Task{
- id: string,
- title: string,
- description: string,
- status:"pending" || "inProgress"|| "completed",
- createdAt: Date,
- }
- */
-
-let tasks = [
-  /* {
+/* {
     id: "1",
     title: "tarea",
     description: "sdsadasd",
     status: "completed",
     createdAt: new Date(),
   },*/
-];
+
+let tasks = [];
 
 export const getAllTasks = () => {
   return tasks;
@@ -43,5 +32,19 @@ export const deleteTask = (id) => {
     return false;
   }
   tasks.splice(tasktoremove, 1); //modifica el array original
+  return true;
+};
+
+export const updateTask = (id, newTitle, newDescription, newStatus) => {
+  const taskToUpdate = tasks.find((task) => task.id === id.toString());
+
+  if (!taskToUpdate) {
+    return false;
+  }
+  taskToUpdate.title = newTitle;
+  taskToUpdate.description = newDescription;
+  taskToUpdate.status = newStatus;
+  taskToUpdate.createdAt = new Date();
+
   return true;
 };
