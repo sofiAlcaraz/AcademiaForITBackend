@@ -1,0 +1,26 @@
+{
+  "name": "academiaforitbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofiAlcaraz/AcademiaForITBackend.git"
+  },
+  "type": "module",
+  "author": "Sofia Alcaraz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sofiAlcaraz/AcademiaForITBackend/issues"
+  },
+  "homepage": "https://github.com/sofiAlcaraz/AcademiaForITBackend#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
