@@ -4,9 +4,11 @@ import tasksRouter from "./src/routes/tasks.routes.js";
 
 //creo nueva iunstancia de express
 const app = express();
+//para que lea json en el body
+app.use(express.json());
+
 //defino una ruta para el endpoint raiz
 //callback captura la request (petición) y entrega una response (respuesta).
-
 app.use("/api/tasks", tasksRouter);
 
 //Manejo de Errores

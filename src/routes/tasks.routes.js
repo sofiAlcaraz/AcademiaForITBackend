@@ -1,13 +1,15 @@
 import express from "express";
-import { getAllTasksController } from "../controllers/tasks.controller.js";
+import {
+  createTaskController,
+  getAllTasksController,
+} from "../controllers/tasks.controller.js";
 const tasksRouter = express.Router();
 
-//obtener todas las tareas
 tasksRouter.get("/", getAllTasksController);
+tasksRouter.post("/", createTaskController);
 /*
-router.post("/", createTaskController);
-router.put("/:id", updateTaskController);
-router.delete("/:id", deleteTaskController);
+tasksRouter.put("/:id", updateTaskController);
+tasksRouter.delete("/:id", deleteTaskController);
 */
 
 export default tasksRouter;
