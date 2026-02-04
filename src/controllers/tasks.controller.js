@@ -1,10 +1,8 @@
-import { createTask, getAllTasks } from "../models/tasks.model.js";
+import { createTask, deleteTask, getAllTasks } from "../models/tasks.model.js";
 
 export const getAllTasksController = (req, res) => {
   try {
-    //simulo que llamo al modelo
     const tasks = getAllTasks();
-    // Lógica para obtener todas las tareas
     res.status(200).json(tasks);
   } catch (error) {
     res
@@ -13,8 +11,6 @@ export const getAllTasksController = (req, res) => {
   }
 };
 export const createTaskController = (req, res) => {
-  // Lógica para crear una nueva tarea
-
   try {
     const { title, description, status } = req.body;
 
@@ -30,4 +26,13 @@ export const createTaskController = (req, res) => {
       .status(500)
       .json({ message: "Error al crear la tarea", error: error.message });
   }
+};
+
+export const deleteTaskController = (req, res) => {
+  const { id } = req.params;
+  const deletedtaskstatus = deleteTask(id);
+  if (!deletedtaskstatus) {
+    return res.status(404).json({ message: "Tarea no encontrada" });
+  }
+  res.status(200).json({ message: "Tarea eliminada exitosamente" });
 };

@@ -36,3 +36,12 @@ export const createTask = (newTitle, newDescription, newStatus) => {
   tasks.push(newTask);
   return newTask;
 };
+
+export const deleteTask = (id) => {
+  const tasktoremove = tasks.findIndex((task) => task.id === id);
+  if (tasktoremove === -1) {
+    return false;
+  }
+  tasks.splice(tasktoremove, 1); //modifica el array original
+  return true;
+};
