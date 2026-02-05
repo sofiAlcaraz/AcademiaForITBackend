@@ -46,5 +46,5 @@ export const updateTask = (id, newTitle, newDescription, newStatus) => {
   taskToUpdate.status = newStatus;
   taskToUpdate.createdAt = new Date();
 
-  return true;
+  return taskToUpdate;
 };

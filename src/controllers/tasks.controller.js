@@ -57,11 +57,13 @@ export const updateTaskController = (req, res) => {
         res.status(400).json({ message: "El estado es obligatorio" });
         return;
     }
-    const updateTaskStatus = updateTask(id, title, description, status);
-    if (!updateTaskStatus) {
+    const updatedTask = updateTask(id, title, description, status);
+    if (!updatedTask) {
       return res.status(404).json({ message: "Tarea no encontrada" });
     }
-    res.status(200).json({ message: "Tarea actualizada exitosamente" });
+    res
+      .status(200)
+      .json({ message: "Tarea actualizada exitosamente", updatedTask });
   } catch (error) {
     res
       .status(500)
