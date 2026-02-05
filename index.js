@@ -1,11 +1,14 @@
 import "dotenv/config"; //para el env
 import express from "express";
 import tasksRouter from "./src/routes/tasks.routes.js";
+import cors from "cors";
 
 //creo nueva instancia de express
 const app = express();
 //middleware para que express pueda entender JSON
 app.use(express.json());
+//para evitar problemas de CORS
+app.use(cors());
 //rutas
 app.use("/api/tasks", tasksRouter);
 
