@@ -36,7 +36,7 @@ export const deleteTask = (id) => {
 };
 
 export const updateTask = (id, newTitle, newDescription, newStatus) => {
-  const taskToUpdate = tasks.find((task) => task.id === id.toString());
+  const taskToUpdate = tasks.find((task) => task.id === id);
 
   if (!taskToUpdate) {
     return false;
