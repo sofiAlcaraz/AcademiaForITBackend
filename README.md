@@ -45,10 +45,11 @@ createdAt: Date
 
 ## Instalaciones extra
 
-- nodemon: reinicia el servidor automáticamente ante cambios en el código durante el desarrollo
-- eslint: detecta errores de sintaxis y problemas de estilo
-- dotenv: permite utilizar variables de entorno con process.env
-- husky: automatiza la ejecución de ESLint antes de cada commit
+- nodemon: reinicia el servidor automáticamente ante cambios en el código durante el desarrollo.
+- eslint: detecta errores de sintaxis y problemas de estilo.
+- dotenv: permite utilizar variables de entorno con process.env.
+- husky: automatiza la ejecución de ESLint antes de cada commit.
+- cors: para evitar problemas de cors.
 
 ---
 
