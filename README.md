@@ -74,3 +74,25 @@ createdAt: Date
 - eslint.config.js
 
 - .husky/
+
+## Imagenes de API funcionando
+
+### Crear tarea
+
+![Imagen de POSTMAN tarea creada con exito](./assets/createImage.png)
+
+### Listar tarea
+
+![Imagen de POSTMAN tareas listadas con exito](./assets/getImage.png)
+
+### Editar tarea
+
+![Imagen de POSTMAN tarea editada con exito](./assets/editImage.png)
+
+### Borrar tarea
+
+![Imagen de POSTMAN tarea borrada con exito](./assets/deleteImage.png)
+
+### Url mal
+
+![Imagen de POSTMAN error url](./assets/badUrlImage.png)
