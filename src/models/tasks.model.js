@@ -11,6 +11,13 @@ let tasks = [];
 export const getAllTasks = () => {
   return tasks;
 };
+export const getTasks = (id) => {
+  const task = tasks.find((t) => t.id === id);
+  if (!task) {
+    return false;
+  }
+  return task;
+};
 
 export const createTask = (newTitle, newDescription, newStatus) => {
   const newId = (tasks.length + 1).toString();

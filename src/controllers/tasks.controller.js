@@ -2,6 +2,7 @@ import {
   createTask,
   deleteTask,
   getAllTasks,
+  getTasks,
   updateTask,
 } from "../models/tasks.model.js";
 
@@ -24,6 +25,22 @@ export const getAllTasksController = (req, res) => {
     res
       .status(500)
       .json({ message: "Error al obtener las tareas", error: error.message });
+  }
+};
+
+export const getTasksController = (req, res) => {
+  try {
+    const { id } = req.params;
+    const task = getTasks(id);
+
+    if (!task) {
+      return res.status(404).json({ message: "Tarea no encontrada" });
+    }
+    res.status(200).json(task);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error al obtener tarea", error: error.message });
   }
 };
 export const createTaskController = (req, res) => {

@@ -81,9 +81,13 @@ createdAt: Date
 
 ![Imagen de POSTMAN tarea creada con exito](./assets/createImage.png)
 
-### Listar tarea
+### Listar todas las tarea
 
 ![Imagen de POSTMAN tareas listadas con exito](./assets/getImage.png)
+
+### Listar una tarea
+
+![Imagen de POSTMAN tarea listada con exito](./assets/getTaskImage.png)
 
 ### Editar tarea
 
