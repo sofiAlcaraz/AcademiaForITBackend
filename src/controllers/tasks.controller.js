@@ -5,6 +5,17 @@ import {
   updateTask,
 } from "../models/tasks.model.js";
 
+const validate = (status, title, res) => {
+  switch (true) {
+    case status == undefined || status === "" || status.trim().length === 0:
+      res.status(400).json({ message: "El estado es obligatorio" });
+      return;
+    case title == undefined || title === "" || title.trim().length === 0:
+      res.status(400).json({ message: "El titulo es obligatorio" });
+      return;
+  }
+};
+
 export const getAllTasksController = (req, res) => {
   try {
     const tasks = getAllTasks();
@@ -23,6 +34,9 @@ export const createTaskController = (req, res) => {
       res.status(400).json({ message: "El estado es obligatorio" });
       return;
     }
+
+    validate(title, status, res);
+
     const newTask = createTask(title, description, status);
 
     res.status(201).json({ message: "Tarea creada exitosamente", newTask });
@@ -46,17 +60,7 @@ export const updateTaskController = (req, res) => {
   try {
     const { title, description, status } = req.body;
     const { id } = req.params;
-    switch (true) {
-      case title === undefined:
-        res.status(400).json({ message: "El título es obligatorio" });
-        return;
-      case description === undefined:
-        res.status(400).json({ message: "La descripción es obligatoria" });
-        return;
-      case status === undefined:
-        res.status(400).json({ message: "El estado es obligatorio" });
-        return;
-    }
+    validate(status, title, res);
     const updatedTask = updateTask(id, title, description, status);
     if (!updatedTask) {
       return res.status(404).json({ message: "Tarea no encontrada" });
