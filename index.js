@@ -13,15 +13,11 @@ app.use(cors());
 app.use("/api/tasks", tasksRouter);
 
 //Manejo de Errores
-app.use((err, res) => {
-  switch (err.status) {
-    case 404:
-      res.status(404).send("Recurso no encontrado o ruta inválida");
-      break;
-
-    default:
-      res.status(500).send("Error Interno del Servidor");
-  }
+app.use((req, res) => {
+  res.status(404).send("Recurso no encontrado o ruta inválida");
+});
+app.use((err, req, res) => {
+  res.status(500).send("Error Interno del Servidor");
 });
 //defino el puerto
 const PORT = process.env.PORT || 3001;
